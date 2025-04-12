@@ -1,3 +1,4 @@
+import getBotResponse from '../';
 
 document.getElementById("send-btn").addEventListener("click", function() {
     let userMessage = document.getElementById("user-input").value;

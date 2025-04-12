@@ -2,7 +2,6 @@ import random
 import nltk
 from nltk.chat.util import Chat, reflections
 import re
-import ast
 
 pares = [
     [ r"oi",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas!"],],
@@ -29,36 +28,34 @@ reflexoes = {
 
 chatbot = Chat(pares, reflections)
 
-while True:
-    user_input = input("Você: ")
-    if user_input.lower() == "sair":
-        print("MatBot: Adeus!")
-        break
+def getBotResponse(user_input):
     operacao = ''
     simboloInvalido = False
     expressao = re.findall('.',user_input)
-    print (expressao)
     for i in expressao:
         if i in ['=','^','%',',']:
             simboloInvalido = True
         elif i in ['+','-','*','/','.'] or i.isdigit():
             operacao = operacao + i
-    print(operacao)
     if simboloInvalido:
-        print("Símbolo Inválido Utilizado. Símbolos Válidos: +, -, /, *. Use ponto em vez de vírgula para números decimais.")
+        resposta = "Símbolo Inválido Utilizado. Símbolos Válidos: +, -, /, *. Use ponto em vez de vírgula para números decimais."
     elif operacao != '':
         resultado = eval(operacao)
         response = chatbot.respond(user_input.lower())
         if response:
-            print("MatBot: ", response, resultado)
+            resposta = "MatBot: " + response + resultado
         else:
-            print("MatBot: ", resultado)
+            resposta = "MatBot: " + resultado
     elif operacao == '':
         if user_input in ['oi','olá','ei','bom dia','boa tarde','boa noite']:
             response = chatbot.respond(user_input.lower())
-            print("MatBot: ", response)
+            resposta = "MatBot: " + response
         else:
             response = chatbot.respond("Nenhuma operação")
-            print("MatBot: ", response)
+            resposta = "MatBot: " + response
+
+    return resposta
+
+export getBotResponse
 
 
