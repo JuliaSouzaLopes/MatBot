@@ -1,3 +1,4 @@
+import getBotResponse from '../';
 
 document.getElementById("send-btn").addEventListener("click", function() {
     let userMessage = document.getElementById("user-input").value;
@@ -9,7 +10,7 @@ document.getElementById("send-btn").addEventListener("click", function() {
     chatBox.appendChild(userDiv);
 
     let botResponse = document.createElement("div");
-    botResponse.textContent = "Chatbot: " + getBotResponse(userMessage);
+    botResponse.textContent = getBotResponse(userMessage);
     chatBox.appendChild(botResponse);
 
     document.getElementById("user-input").value = "";
