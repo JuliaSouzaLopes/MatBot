@@ -35,17 +35,17 @@ def getBotResponse(user_input):
     for i in expressao:
         if i in ['=','^','%',',']:
             simboloInvalido = True
-        elif i in ['+','-','*','/','.'] or i.isdigit():
+        elif i in ['+','-','*','/','.','(',')'] or i.isdigit():
             operacao = operacao + i
     if simboloInvalido:
-        resposta = "Símbolo Inválido Utilizado. Símbolos Válidos: +, -, /, *. Use ponto em vez de vírgula para números decimais."
+        resposta = "Símbolo Inválido Utilizado. Símbolos Válidos: +, -, /, * e (). Use ponto em vez de vírgula para números decimais."
     elif operacao != '':
         resultado = eval(operacao)
         response = chatbot.respond(user_input.lower())
         if response:
-            resposta = "MatBot: " + response + resultado
+            resposta = "MatBot: " + response + str(resultado)
         else:
-            resposta = "MatBot: " + resultado
+            resposta = "MatBot: " + str(resultado)
     elif operacao == '':
         if user_input in ['oi','olá','ei','bom dia','boa tarde','boa noite']:
             response = chatbot.respond(user_input.lower())
@@ -56,6 +56,11 @@ def getBotResponse(user_input):
 
     return resposta
 
-export getBotResponse
-
+while True:
+    entrada = input("Você: ")
+    if entrada.lower() == "sair":
+        print ("MatBot: Adeus!")
+        break
+    saida = getBotResponse(entrada)
+    print(saida)
 
