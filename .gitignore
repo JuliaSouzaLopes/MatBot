@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+
+
+# Dependências do Node.js
+node_modules
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
