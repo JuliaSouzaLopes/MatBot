@@ -2,6 +2,8 @@ import random
 import nltk
 from nltk.chat.util import Chat, reflections
 import re
+from sys import stdin, stdout
+import json
 
 pares = [
     [ r"oi",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas!"],],
@@ -57,10 +59,19 @@ def getBotResponse(user_input):
     return resposta
 
 while True:
-    entrada = input("Você: ")
-    if entrada.lower() == "sair":
-        print ("MatBot: Adeus!")
-        break
-    saida = getBotResponse(entrada)
-    print(saida)
+    message = stdin.readline()
+    message = json.loads(message)
+    entrada = message['entrada']
+
+    response = {}
+
+
+    saida = getBotResponse(*entrada)
+    response['data'] = saida
+
+
+    response = json.dumps(response)
+    stdout.write(response)
+    stdout.flush()
+
 
