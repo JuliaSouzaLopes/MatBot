@@ -65,10 +65,8 @@ while True:
 
     response = {}
 
-
-    saida = getBotResponse(*entrada)
+    saida = getBotResponse(entrada)
     response['data'] = saida
-
 
     response = json.dumps(response)
     stdout.write(response)
