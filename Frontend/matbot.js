@@ -1,22 +1,3 @@
-// import getBotResponse from '../';
-
-// document.getElementById("send-btn").addEventListener("click", function() {
-//     let userMessage = document.getElementById("user-input").value;
-//     if (userMessage.trim() === "") return;
-
-//     let chatBox = document.getElementById("chat-box");
-//     let userDiv = document.createElement("div");
-//     userDiv.textContent = "Você: " + userMessage;
-//     chatBox.appendChild(userDiv);
-
-//     let botResponse = document.createElement("div");
-//     botResponse.textContent = getBotResponse(userMessage);
-//     chatBox.appendChild(botResponse);
-
-//     document.getElementById("user-input").value = "";
-//     chatBox.scrollTop = chatBox.scrollHeight;
-// });
-
 document.addEventListener("DOMContentLoaded", startApp)
 
 function startApp() {
@@ -34,9 +15,10 @@ function handleActions() {
             return;
         }
     
-        await fetch("http://127.0.0.1:3000/enviaMensagem",{
-            mode:'no-cors',
+        await fetch("http://127.0.0.1:5000/enviaMensagem",{
             method: "POST",
+            body: JSON.stringify({Mensagem:userMessage}),
+            headers: {"Content-Type":"application/json"}
         }).then((response) => {
             if (response.ok) {
                 return response.json();
@@ -50,7 +32,7 @@ function handleActions() {
             chatBox.appendChild(userDiv);
 
             let botDiv = document.createElement("div");
-            botDiv.textContent = "Bot: " + data.resultado;
+            botDiv.textContent = "MatBot: " + data.resultado;
             chatBox.appendChild(botDiv);
 
             document.getElementById("user-input").value = "";

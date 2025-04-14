@@ -2,17 +2,19 @@
 ChatBot de Matemática
 
 
-#TODO
-
-Front
-- Conectar Front com API
-    - Handle de botoes
-    - validar msg usuario
-
-Backend
-    - Carregar API
-    - Validar resposta
-    - Integrar BOT
-    - Retornar para Front
-
-- API conecta com BOT
+Comandos
+```sh
+python -m venv venv
+```
+```sh
+.\venv\Activate\Scripts.ps1
+```
+```sh
+pip install Flask flask_cors nltk
+```
+```sh
+python -m nltk.downloader all
+```
+```sh
+flask --app servidor run
+```
