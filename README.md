@@ -7,7 +7,7 @@ Comandos
 python -m venv venv
 ```
 ```sh
-.\venv\Activate\Scripts.ps1
+.\venv\Scripts\Activate.ps1
 ```
 ```sh
 pip install Flask flask_cors nltk

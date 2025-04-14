@@ -47,7 +47,7 @@ def getBotResponse(user_input):
     elif operacao == '':
         if user_input in ['oi','olá','ei','bom dia','boa tarde','boa noite']:
             response = chatbot.respond(user_input.lower())
-            resposta = + response
+            resposta = response
         else:
             response = chatbot.respond("Nenhuma operação")
             resposta = response
