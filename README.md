@@ -1,7 +1,7 @@
 # MatBot
 ChatBot de Matemática
 
-Júlia de Souza Lopes
+Júlia de Souza Lopes,
 Marília Carvalho
 
 Comandos
