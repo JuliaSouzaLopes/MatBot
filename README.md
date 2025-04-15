@@ -1,6 +1,8 @@
 # MatBot
 ChatBot de Matemática
 
+Júlia de Souza Lopes
+Marília Carvalho
 
 Comandos
 ```sh
