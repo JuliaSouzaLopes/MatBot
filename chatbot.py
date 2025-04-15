@@ -2,14 +2,14 @@ from nltk.chat.util import Chat, reflections
 import re
 
 pares = [
-    [ r"oi",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas!"],],
-    [ r"olá",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas!"],],
-    [ r"ei",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas!"],],
-    [ r"bom dia",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas!"],],
-    [ r"boa tarde",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas!"],],
-    [ r"boa noite",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas!"],],
-    [ r"quanto é (.*)\?",["O resultado é:"],],
-    [ r"quanto é (.*)",["O resultado é:"],],
+    [ r"oi",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas! Qual sua dúvida?"],],
+    [ r"olá",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas! Qual sua dúvida?"],],
+    [ r"ei",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas! Qual sua dúvida?"],],
+    [ r"bom dia",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas! Qual sua dúvida?"],],
+    [ r"boa tarde",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas! Qual sua dúvida?"],],
+    [ r"boa noite",["Oi, sou o MatBot, o chat que te ajuda com operações matemáticas! Qual sua dúvida?"],],
+    [ r"quanto é (.*)\?",["O resultado é "],],
+    [ r"quanto é (.*)",["O resultado é "],],
     [r"Nenhuma operação",["Não entendi, por favor digite uma operação!"],],
 ]
 
@@ -41,9 +41,9 @@ def getBotResponse(user_input):
         resultado = eval(operacao)
         response = chatbot.respond(user_input.lower())
         if response:
-            resposta = response + str(resultado)
+            resposta = response + str(resultado) + ". Você tem alguma outra dúvida?"
         else:
-            resposta = str(resultado)
+            resposta = str(resultado) + ". Você tem alguma outra pergunta?"
     elif operacao == '':
         if user_input in ['oi','olá','ei','bom dia','boa tarde','boa noite']:
             response = chatbot.respond(user_input.lower())
